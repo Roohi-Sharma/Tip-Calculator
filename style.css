@@ -1,0 +1,12 @@
+.main{
+    display: block;
+    position: relative;
+    text-align: left;
+    top: 50%;
+    /* transform:translateY(-50%); */
+    left:10%;
+    /*transform: translateX(-50%);*/
+    height:45vh;
+    /* background: transparent; */
+    width: 80%;
+    }
