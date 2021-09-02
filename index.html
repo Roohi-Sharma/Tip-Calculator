@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Tip Calculator</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
@@ -10,25 +10,38 @@
     <body>
     
         <form>
-        <div class="main">
+        <div id="container">
+            
+            <h1>Tip Calculator</h1><br>
             <label>Bill</label>
             <br>
-            <input type="number">
+            <!--disable pasting text into input box to avoid any string or another invalid input-->
+            <label style="font-size: 22px;">$</label><input type="number" id="amt" required min="0.00" step="any" onpaste="return false">
             <br><br>
             <label>Tip %</label>
             <br>
-            <button id="min" onclick="decrement(); return false">-</button>
-            <input type="text" value="0" id="tip" >
-            <button onclick="increment(); return false">+</button>
+            <!--All buttons return false to prevent their default action i.e page reloading upon click-->
+            <button id="min" onclick="decrement(this); return false">-</button>
+            <input type="text" value="0" id="tip" onpaste="return false" onkeypress="return validateInput(event)"> 
+            <button id="plus" onclick="increment(this); return false">+</button>
             <br><br>
             <label>Number of People</label>
             <br>
-            <button>-</button>
-            <input type="text">
-            <button>+</button>
+            <button id="min_people" onclick="decrement(this); return false">-</button>
+            <input type="text" value="0" id="people" onpaste="return false" onkeypress="return validateInput(event)"> 
+            <button id="plus_people" onclick="increment(this); return false">+</button>
+            <br><br>
+            <button id="calc" onclick="calculate(); return false">Calculate</button>
+            <br>
+            <!--Hide amount & tip per person,these will be displayed upon entering correct values and clicking on calculate button-->
+            <h3 style="display: none;" id="display_bill">Total amount per person: $<span id="bill_amt"></span></h3>
+            <h3 style="display: none;" id="display_tip">Total tip per person: $<span id="tip_amt"></span></h3>
+            
         </div>
+        <!--Transparent background around the tip calculator for better visibility-->
+        <div class="bgcalc"></div>
         </form>
-    
+        <!--Javascript source file path specified-->
         <script type="text/javascript" src="main.js">
            
             
