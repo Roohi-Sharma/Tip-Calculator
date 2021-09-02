@@ -1,7 +1,7 @@
 body{
     background-image: url('/background.jpg');
     font-family: 'Helvetica';
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center 25%;
     background-size: cover;
     
